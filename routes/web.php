@@ -11,6 +11,9 @@
 |
 */
 
+/*
+ *  Test route for database
+ */
 Route::get('/debug', function () {
 
     $debug = [
@@ -37,6 +40,10 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
+
+Route::get('/threads/new', 'ThreadController@new');
+
+
+
+// Route::get('/newThread', )
