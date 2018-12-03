@@ -42,8 +42,15 @@ Route::get('/debug', function () {
 
 Route::view('/', 'welcome');
 
+Route::get('/threads/list', 'ThreadController@getList');
+
 Route::get('/threads/new', 'ThreadController@new');
 
+Route::post('/create', 'ThreadController@create');
+
+Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 
 
-// Route::get('/newThread', )
+
+
+// Route::get('/thread/{id}', )
