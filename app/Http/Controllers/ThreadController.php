@@ -43,11 +43,15 @@ class ThreadController extends Controller
     public function displayThread($id)
     {
         $thread = Thread::find($id);
+        $comments = Comment::where('thread_id', '=', $id)->get();
+
         return view('threads.thread')->with([
             'title' => $thread->title,
             'body_text' => $thread->body_text,
             'author' => $thread->author,
-            'created_at' => $thread->created_at
+            'created_at' => $thread->created_at,
+            'id' => $thread->id,
+            'comments' => $comments->isNotEmpty() ? $comments->toArray() : null
         ]);
     }
 
@@ -75,5 +79,37 @@ class ThreadController extends Controller
 
 
         return redirect()->route('viewThread', ['id' => $threads->id]);
+    }
+
+    /*
+     * POST
+     * /comment
+     * Process user input and add new comment to thread.
+     */
+    public function addComment(Request $request, $id) {
+        # Validate request data
+        $request->validate([
+            'text' => 'required'
+        ]);
+
+        $comment = new Comment();
+
+        $comment->thread_id = $id;
+        $comment->text = $request->input('text');
+        $comment->author = 'Test';
+
+        $comment->save();
+
+        $thread = Thread::find($id);
+        $thread->reply_count = $thread->reply_count + 1;
+        $thread->save();
+
+
+        /*
+         *  TODO: Update reply count in Threads table.
+         *  OR  REMOVE reply count column and calculate on a query statement
+         */
+
+        return redirect()->route('viewThread', ['id' => $id]);
     }
 }

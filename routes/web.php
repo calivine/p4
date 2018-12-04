@@ -48,7 +48,10 @@ Route::get('/threads/new', 'ThreadController@new');
 
 Route::post('/create', 'ThreadController@create');
 
+Route::post('/threads/{id}/comment', 'ThreadController@addComment');
+
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
+
 
 
 
