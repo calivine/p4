@@ -2,8 +2,6 @@
 
 
 @section('content')
-
-    <h1> Under construction</h1>
     <section>
         <h2>{{ $title }}</h2>
         <p>
@@ -16,13 +14,6 @@
             {{ $body_text }}
         </p>
     </section>
-    @if ($comments != null)
-        @foreach ($comments as $comment)
-            <p>
-                {{ $comment['text'] }}
-            </p>
-        @endforeach
-    @endif
     <form method='POST' action='/threads/{{ $id }}/comment'>
         {{ csrf_field() }}
         <fieldset>
@@ -33,6 +24,14 @@
         </fieldset>
         <button type='submit'>Submit</button>
     </form>
-
+    <section>
+        @if ($comments != null)
+            @foreach ($comments as $comment)
+                <p>
+                    {{ $comment['text'] }}
+                </p>
+            @endforeach
+        @endif
+    </section>
     <a href='/'>Return Home</a>
 @endsection
