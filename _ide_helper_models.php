@@ -12,6 +12,28 @@
 
 namespace App{
 /**
+ * App\Comment
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment query()
+ */
+	class Comment extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Thread
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Thread newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Thread newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Thread query()
+ */
+	class Thread extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications

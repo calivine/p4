@@ -1,5 +1,12 @@
 @extends('layouts.master')
 
+@section('title')
+    Threads
+@endsection
+
+@push('head')
+    <link href='/css/comments/_comment.css' rel='stylesheet'>
+@endpush
 
 @section('content')
     <section>
@@ -27,9 +34,7 @@
     <section>
         @if ($comments != null)
             @foreach ($comments as $comment)
-                <p>
-                    {{ $comment['text'] }}
-                </p>
+                @include('comments._comment')
             @endforeach
         @endif
     </section>

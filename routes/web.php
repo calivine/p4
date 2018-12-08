@@ -40,20 +40,27 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
+/*
+ * Home
+ */
 Route::view('/', 'welcome');
 
+/*
+ * Threads
+ */
 Route::get('/threads/list', 'ThreadController@getList');
 
+# CREATE new thread
 Route::get('/threads/new', 'ThreadController@new');
-
 Route::post('/create', 'ThreadController@create');
 
-Route::post('/threads/{id}/comment', 'ThreadController@addComment');
-
+# SHOW
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 
+# CREATE new comment
+Route::post('/threads/{id}/comment', 'ThreadController@addComment');
 
+# EDIT
+Route::get('/comments/{id}/edit', 'CommentController@edit');
+Route::put('/comments/{id}', 'CommentController@update');
 
-
-
-// Route::get('/thread/{id}', )

@@ -78,7 +78,9 @@ class ThreadController extends Controller
         $threads->save();
 
 
-        return redirect()->route('viewThread', ['id' => $threads->id]);
+        return redirect()->route('viewThread', ['id' => $threads->id])->with([
+            'alert' => 'New thread was successfully created.'
+        ]);
     }
 
     /*
@@ -110,6 +112,8 @@ class ThreadController extends Controller
          *  OR  REMOVE reply count column and calculate on a query statement
          */
 
-        return redirect()->route('viewThread', ['id' => $id]);
+        return redirect()->route('viewThread', ['id' => $id])->with([
+            'alert' => 'Your comment was added.'
+        ]);
     }
 }

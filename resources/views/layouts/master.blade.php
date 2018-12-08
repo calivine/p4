@@ -13,6 +13,12 @@
 </head>
 <body>
 
+@if(session('alert'))
+    <div class='alert'>
+        {{ session('alert') }}
+    </div>
+@endif
+
 <h1> {{ config('app.name') }}</h1>
 
 <section>
