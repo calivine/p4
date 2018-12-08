@@ -64,3 +64,7 @@ Route::post('/threads/{id}/comment', 'ThreadController@addComment');
 Route::get('/comments/{id}/edit', 'CommentController@edit');
 Route::put('/comments/{id}', 'CommentController@update');
 
+# DELETE
+Route::get('comments/{id}/delete', 'CommentController@delete');
+Route::delete('comments/{id}', 'CommentController@destroy');
+

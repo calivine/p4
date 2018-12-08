@@ -34,8 +34,44 @@ class CommentController extends Controller
         $this->validate($request, [
             'comment_text' => 'required'
         ]);
-        dump($request->input('comment_text'));
-        die();
 
+        $comment = Comment::find($id);
+
+        $comment->text = $request->input('comment_text');
+        $comment->save();
+
+        return redirect()->route('viewThread', ['id' => $comment->thread_id])->with([
+            'alert' => 'Comment Updated'
+        ]);
+    }
+
+    /*
+     * GET
+     * /comments/{id}/delete
+     * Display confirmation page to delete comment
+     */
+    public function delete($id)
+    {
+        $comment = Comment::find($id);
+
+        return view('comments.delete')->with([
+            'comment' => $comment
+        ]);
+    }
+
+    /*
+     * Complete the delete process
+     * DELETE
+     * /comments/{id}/delete
+     */
+    public function destroy($id)
+    {
+        $comment = Comment::find($id);
+
+        $comment->delete();
+
+        return redirect()->route('viewThread', ['id' => $comment->thread_id])->with([
+            'alert' => 'Comment Deleted'
+        ]);
     }
 }
