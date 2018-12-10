@@ -16,7 +16,7 @@ Reset Styles
 ***************************/
 /* Change all elements to use border-box */
 html {
-    background-color: #696969;
+    background-color: #0A0A0A;
     box-sizing: border-box;
     /* sticky footer */
     position: relative;
@@ -195,6 +195,6 @@ Module Styles
 /* Background Colors
  */
 .background-primary {
-    background-color: #3d4852;
+    background-color: #343434;
 }
 
