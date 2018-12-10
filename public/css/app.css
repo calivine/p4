@@ -16,6 +16,7 @@ Reset Styles
 ***************************/
 /* Change all elements to use border-box */
 html {
+    background-color: #696969;
     box-sizing: border-box;
     /* sticky footer */
     position: relative;
@@ -66,6 +67,12 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+li {
+    border: .25em solid;
+    list-style-type: none;
+}
+
 
 /***************************
 ****************************
@@ -179,8 +186,15 @@ Module Styles
 /* Header Modules */
 
 .header-primary {
-    background: #9B8579;
+    background-color: #696969;
     text-align: center;
     padding-top: 18px;
     padding-bottom: 18px;
 }
+
+/* Background Colors
+ */
+.background-primary {
+    background-color: #3d4852;
+}
+

@@ -19,7 +19,6 @@ class CreateThreadsTable extends Migration
             $table->string('author')->nullable();
             $table->string('title', 125);
             $table->string('body_text');
-            $table->integer('reply_count')->nullable();
         });
     }
 

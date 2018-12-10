@@ -9,34 +9,28 @@
 @endpush
 
 @section('content')
-    <section>
-        <h2>{{ $title }}</h2>
-        <p>
-            By {{ $author }}
-        </p>
-        <p>
-            Created at {{ $created_at }}
-        </p>
-        <p>
-            {{ $body_text }}
-        </p>
-    </section>
-    <form method='POST' action='/threads/{{ $id }}/comment'>
-        {{ csrf_field() }}
-        <fieldset>
-            <label for='text'>
-                Text:*
-                <textarea autocomplete='off' name='text' id='text'></textarea>
-            </label>
-        </fieldset>
-        <button type='submit'>Submit</button>
-    </form>
-    <section>
-        @if ($comments != null)
-            @foreach ($comments as $comment)
-                @include('comments._comment')
-            @endforeach
-        @endif
-    </section>
-    <a href='/'>Return Home</a>
+    <div class='container background-primary'>
+        <div class='row'>
+            <div class='col-3-3 remove-gutter-xs'>
+                @include('modules.thread-body')
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-3-3 remove-gutter-xs'>
+                @include('modules.create-comment')
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-3-3 remove-gutter-xs'>
+                <section>
+                    @if ($comments != null)
+                        @foreach ($comments as $comment)
+                            @include('comments._comment')
+                        @endforeach
+                    @endif
+                </section>
+            </div>
+        </div>
+        <a href='/'>Return Home</a>
+    </div>
 @endsection

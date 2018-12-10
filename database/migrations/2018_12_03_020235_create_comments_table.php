@@ -16,10 +16,11 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-
-            $table->integer('thread_id');
             $table->string('text');
             $table->string('author');
+            $table->integer('thread_id')->unsigned();
+
+            $table->foreign('thread_id')->references('id')->on('threads');
         });
     }
 

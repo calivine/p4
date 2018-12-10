@@ -43,15 +43,12 @@ class ThreadController extends Controller
     public function displayThread($id)
     {
         $thread = Thread::find($id);
-        $comments = Comment::where('thread_id', '=', $id)->get();
+        $comments = $thread->comments;
+
 
         return view('threads.thread')->with([
-            'title' => $thread->title,
-            'body_text' => $thread->body_text,
-            'author' => $thread->author,
-            'created_at' => $thread->created_at,
-            'id' => $thread->id,
-            'comments' => $comments->isNotEmpty() ? $comments->toArray() : null
+            'thread' => $thread,
+            'comments' => $comments->isNotEmpty() ? $comments : null
         ]);
     }
 
@@ -73,10 +70,7 @@ class ThreadController extends Controller
         $threads->title = $request->input('title');
         $threads->body_text = $request->input('body_text');
         $threads->author = 'Test';
-        $threads->reply_count = 0;
-
         $threads->save();
-
 
         return redirect()->route('viewThread', ['id' => $threads->id])->with([
             'alert' => 'New thread was successfully created.'
@@ -94,23 +88,13 @@ class ThreadController extends Controller
             'text' => 'required'
         ]);
 
-        $comment = new Comment();
+        $thread = Thread::find($id);
 
-        $comment->thread_id = $id;
+        $comment = new Comment();
         $comment->text = $request->input('text');
         $comment->author = 'Test';
-
+        $comment->thread()->associate($thread);
         $comment->save();
-
-        $thread = Thread::find($id);
-        $thread->reply_count = $thread->reply_count + 1;
-        $thread->save();
-
-
-        /*
-         *  TODO: Update reply count in Threads table.
-         *  OR  REMOVE reply count column and calculate on a query statement
-         */
 
         return redirect()->route('viewThread', ['id' => $id])->with([
             'alert' => 'Your comment was added.'
