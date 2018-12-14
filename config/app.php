@@ -2,6 +2,19 @@
 
 return [
 
+    # Guest navigation links
+    'nav' => [
+        '/register' => 'Register',
+        '/login' => 'Login',
+        '/threads/list' => 'Threads'
+    ],
+
+    # Logged-in user navigation links
+    'nav1' => [
+        '/threads/list' => 'Threads',
+        '/threads/new' => 'New Thread'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -174,6 +187,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 

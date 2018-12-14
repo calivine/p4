@@ -19,6 +19,10 @@
     </div>
 @endif
 
+<header>
+    @include('modules.nav-bar')
+</header>
+
 <h1> {{ config('app.name') }}</h1>
 
 <section>

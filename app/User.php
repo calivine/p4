@@ -27,4 +27,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function threads()
+    {
+        # User has many threads
+        # Define a one-to-many relationship
+        return $this->hasMany('App\Thread');
+    }
+
+    public function comments()
+    {
+        # User has many comments
+        # Define a one-to-many relationship
+        return $this->hasMany('App\Comment');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role')->withTimestamps();
+    }
+
+
 }

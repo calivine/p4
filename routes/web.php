@@ -51,14 +51,18 @@ Route::view('/', 'welcome');
 Route::get('/threads/list', 'ThreadController@getList');
 
 # CREATE new thread
-Route::get('/threads/new', 'ThreadController@new');
+# Route::get('/threads/new', 'ThreadController@new');
+Route::get('/threads/new', [
+    'middleware' => 'auth',
+    'uses' => 'ThreadController@new'
+]);
 Route::post('/create', 'ThreadController@create');
 
 # SHOW
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 
 # CREATE new comment
-Route::post('/threads/{id}/comment', 'ThreadController@addComment');
+Route::post('/threads/{id}/comment', 'CommentController@addComment');
 
 # EDIT
 Route::get('/comments/{id}/edit', 'CommentController@edit');
@@ -67,4 +71,20 @@ Route::put('/comments/{id}', 'CommentController@update');
 # DELETE
 Route::get('comments/{id}/delete', 'CommentController@delete');
 Route::delete('comments/{id}', 'CommentController@destroy');
+
+# AUTHENTICATION
+Auth::routes();
+
+# Test login
+Route::get('/show-login-status', function() {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+    return;
+});
+
 

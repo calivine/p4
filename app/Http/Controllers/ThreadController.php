@@ -44,10 +44,12 @@ class ThreadController extends Controller
     {
         $thread = Thread::find($id);
         $comments = $thread->comments;
+        $user = $thread->user;
 
 
         return view('threads.thread')->with([
             'thread' => $thread,
+            'user' => $user->name,
             'comments' => $comments->isNotEmpty() ? $comments : null
         ]);
     }
@@ -65,11 +67,14 @@ class ThreadController extends Controller
             'body_text' => 'required'
         ]);
 
+        # Get user object
+        $user = $request->user();
+
         $threads = new Thread();
 
         $threads->title = $request->input('title');
         $threads->body_text = $request->input('body_text');
-        $threads->author = 'Test';
+        $threads->user()->associate($user);
         $threads->save();
 
         return redirect()->route('viewThread', ['id' => $threads->id])->with([
@@ -77,27 +82,5 @@ class ThreadController extends Controller
         ]);
     }
 
-    /*
-     * POST
-     * /comment
-     * Process user input and add new comment to thread.
-     */
-    public function addComment(Request $request, $id) {
-        # Validate request data
-        $request->validate([
-            'text' => 'required'
-        ]);
 
-        $thread = Thread::find($id);
-
-        $comment = new Comment();
-        $comment->text = $request->input('text');
-        $comment->author = 'Test';
-        $comment->thread()->associate($thread);
-        $comment->save();
-
-        return redirect()->route('viewThread', ['id' => $id])->with([
-            'alert' => 'Your comment was added.'
-        ]);
-    }
 }

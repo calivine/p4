@@ -16,9 +16,11 @@ class CreateThreadsTable extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('author')->nullable();
             $table->string('title', 125);
             $table->string('body_text');
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

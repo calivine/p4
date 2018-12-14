@@ -12,4 +12,11 @@ class Comment extends Model
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('App\Thread');
     }
+
+    public function user()
+    {
+        # Comment belongs to User
+        # Define an inverse one-to-many relationship
+        return $this->belongsTo('App\User');
+    }
 }

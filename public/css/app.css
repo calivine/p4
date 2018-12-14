@@ -14,9 +14,11 @@
 Reset Styles
 ****************************
 ***************************/
+
+@import 'normalize.css';
+
 /* Change all elements to use border-box */
 html {
-    background-color: #0A0A0A;
     box-sizing: border-box;
     /* sticky footer */
     position: relative;
@@ -40,8 +42,11 @@ Base Styles
 ****************************
 ***************************/
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    font-family: 'Cambay', sans-serif;
     font-weight: normal;
+    text-align: center;
 }
 
 h1, h2, h3 {
@@ -51,7 +56,7 @@ h1, h2, h3 {
 footer {
     text-align: center;
     background-color: #eee;
-
+    color: #0A0A0A;
     /* sticky footer */
     position: absolute;
     bottom: 0;
@@ -61,6 +66,7 @@ footer {
 }
 
 a {
+    color: #4FE734;
     font-weight: bold;
 }
 
@@ -91,6 +97,8 @@ Layout Styles
     margin-right: -15px;
     margin-left: -15px;
     min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 /* https://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/ */
@@ -195,6 +203,9 @@ Module Styles
 /* Background Colors
  */
 .background-primary {
-    background-color: #343434;
+    background-color: #3E3E3E;
 }
 
+.thread-body {
+    background-color: #494949;
+}

@@ -9,6 +9,31 @@ use App\Comment;
 class CommentController extends Controller
 {
     /*
+     * POST
+     * /comment
+     * Process user input and add new comment to thread.
+     */
+    public function addComment(Request $request, $id) {
+        # Validate request data
+        $request->validate([
+            'text' => 'required'
+        ]);
+
+        $thread = Thread::find($id);
+        $user = $request->user();
+
+        $comment = new Comment();
+        $comment->text = $request->input('text');
+        $comment->thread()->associate($thread);
+        $comment->user()->associate($user);
+        $comment->save();
+
+        return redirect()->route('viewThread', ['id' => $id])->with([
+            'alert' => 'Your comment was added.'
+        ]);
+    }
+
+    /*
      * GET
      * /comments/{id}/edit
      */
@@ -19,7 +44,7 @@ class CommentController extends Controller
         return view('comments.edit')->with([
             'text' => $comment->text,
             'created_at' => $comment->created_at,
-            'author' => $comment->author,
+            'author' => $comment->user_id,
             'id' => $comment->id
         ]);
     }

@@ -10,16 +10,18 @@
 
 @section('content')
     <div class='container background-primary'>
-        <div class='row'>
+        <div class='row thread-body'>
             <div class='col-3-3 remove-gutter-xs'>
                 @include('modules.thread-body')
             </div>
         </div>
-        <div class='row'>
-            <div class='col-3-3 remove-gutter-xs'>
-                @include('modules.create-comment')
+        @if(Auth::check())
+            <div class='row'>
+                <div class='col-3-3 remove-gutter-xs'>
+                    @include('modules.create-comment')
+                </div>
             </div>
-        </div>
+        @endif
         <div class='row'>
             <div class='col-3-3 remove-gutter-xs'>
                 <section>
@@ -31,6 +33,6 @@
                 </section>
             </div>
         </div>
-        <a href='/'>Return Home</a>
     </div>
+    <a href='/'>Return Home</a>
 @endsection

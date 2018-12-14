@@ -13,4 +13,11 @@ class Thread extends Model
         # Define a one-to-many relationship.
         return $this->hasMany('App\Comment');
     }
+
+    public function user()
+    {
+        # Thread belongs to User
+        # Define an inverse one-to-many relationship
+        return $this->belongsTo('App\User');
+    }
 }
