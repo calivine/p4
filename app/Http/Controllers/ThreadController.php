@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\Comment;
+use App\User;
 
 class ThreadController extends Controller
 {
@@ -40,17 +41,29 @@ class ThreadController extends Controller
      * /threads/{id}
      * Display a thread
      */
-    public function displayThread($id)
+    public function displayThread(Request $request, $id)
     {
         $thread = Thread::find($id);
-        $comments = $thread->comments;
-        $user = $thread->user;
+        # $comments = $thread->comments;
+        # Grab all the comments associated with the thread
+        # $comments = Comment::where('thread_id', '=', $id)->get();
+
+        $comments = Comment::with('user')->get();
+
+        $author = $thread->user->name;
+
+        $user = $request->user();
+
+        #dump($authors);
+        #die();
+
 
 
         return view('threads.thread')->with([
             'thread' => $thread,
-            'user' => $user->name,
-            'comments' => $comments->isNotEmpty() ? $comments : null
+            'author' => $author,
+            'comments' => $comments->isNotEmpty() ? $comments : null,
+            'user' => $user->id ?? null
         ]);
     }
 
