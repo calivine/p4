@@ -103,5 +103,38 @@ class ThreadController extends Controller
         ]);
     }
 
+    /*
+     * GET
+     * /threads/{id}/edit
+     * Display Thread to edit
+     */
+    public function editThread($id)
+    {
+        $thread = Thread::find($id);
+        return view('threads.edit-thread')->with([
+            'thread' => $thread
+        ]);
+    }
+
+    /*
+     * PUT
+     * /threads/{id}
+     * Process edit Thread
+     */
+    public function updateThread(Request $request, $id)
+    {
+        $this->validate($request, [
+            'body_text' => 'required'
+        ]);
+        $thread = Thread::find($id);
+        $thread->title = $request->input('title');
+        $thread->body_text = $request->input('body_text');
+        $thread->save();
+
+        return redirect('/threads/list')->with([
+            'alert' => 'Thread Updated'
+        ]);
+    }
+
 
 }

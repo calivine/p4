@@ -1,16 +1,20 @@
 <nav>
     <ul>
         @foreach(config('app.nav'.Auth::check()) as $link => $label)
-            <li><a href='{{ $link }}' class='{{ Request::is(substr($link, 1)) ? 'active' : '' }}'> {{ $label }}</a></li>
+            <div class='col-1-6'>
+                <li><a href='{{ $link }}' class='{{ Request::is(substr($link, 1)) ? 'active' : '' }}'> {{ $label }}</a></li>
+            </div>
         @endforeach
 
         @if(Auth::check())
-            <li>
-                <form method='POST' id='logout' action='/logout'>
-                    {{ csrf_field() }}
-                    <a href='#' onClick='document.getElementById("logout").submit();'>Logout {{ $user->name }}</a>
-                </form>
-            </li>
+            <div class='col-1-6'>
+                <li>
+                    <form method='POST' id='logout' action='/logout'>
+                        {{ csrf_field() }}
+                        <a href='#' onClick='document.getElementById("logout").submit();'>Logout {{ $user->name }}</a>
+                    </form>
+                </li>
+            </div>
         @endif
     </ul>
 </nav>

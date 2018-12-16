@@ -32,10 +32,14 @@ Route::post('/create', 'ThreadController@create');
 # SHOW
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 
+# EDIT thread
+Route::get('/threads/{id}/edit', 'ThreadController@editThread');
+Route::put('/threads/{id}', 'ThreadController@updateThread');
+
 # CREATE new comment
 Route::post('/threads/{id}/comment', 'CommentController@addComment');
 
-# EDIT
+# EDIT comment
 Route::get('/comments/{id}/edit', 'CommentController@edit');
 Route::put('/comments/{id}', 'CommentController@update');
 

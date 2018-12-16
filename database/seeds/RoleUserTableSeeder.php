@@ -16,7 +16,7 @@ class RoleUserTableSeeder extends Seeder
     {
         $roles = [
             1 => 'admin',
-            2 => 'mod'
+            2 => 'member'
         ];
 
         foreach ($roles as $index => $roleName) {
