@@ -25,9 +25,17 @@
 
 <h1> {{ config('app.name') }}</h1>
 
-<section>
-    @yield('content')
-</section>
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+@endif
+
+<div class='container background-primary'>
+    <section>
+        @yield('content')
+    </section>
+</div>
 
 <footer>
     <a href='http://github.com/calivine/p4'><i class='fab fa-github'></i> View on Github</a> |

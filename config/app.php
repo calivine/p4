@@ -12,7 +12,8 @@ return [
     # Logged-in user navigation links
     'nav1' => [
         '/threads/list' => 'Threads',
-        '/threads/new' => 'New Thread'
+        '/threads/new' => 'New Thread',
+        '/profile' => 'Profile'
     ],
 
     /*

@@ -1,18 +1,10 @@
 @extends('layouts.master')
 
-@section('title')
-    Threads
-@endsection
-
-@push('head')
-    <link href='/css/comments/_comment.css' rel='stylesheet'>
-@endpush
-
 @section('content')
     <div class='container background-primary'>
         <div class='row thread-body'>
             <div class='col-3-3 remove-gutter-xs'>
-                @include('modules.thread-body')
+                @include('threads.body')
             </div>
         </div>
         @if(Auth::check())

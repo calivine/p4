@@ -66,7 +66,8 @@ footer {
 }
 
 a {
-    color: #4FE734;
+    /* color: #4FE734; */
+    color: #6ba65e;
     font-weight: bold;
 }
 
@@ -75,7 +76,6 @@ a:hover {
 }
 
 li {
-    border: .25em solid;
     list-style-type: none;
 }
 
@@ -86,8 +86,10 @@ Layout Styles
 ****************************
 ***************************/
 .container {
+    height: 500px;
     padding-right: 15px;
     padding-left: 15px;
+    padding-top: 15px;
     margin-right: auto;
     margin-left: auto;
     max-width: 1170px;
@@ -138,6 +140,10 @@ Layout Styles
     /* Column One Quarter */
     .col-1-4 {
         width: 25%;
+    }
+    /* Column Three Quarters */
+    .col-3-4 {
+        width: 75%;
     }
     /* Column One Sixth */
     .col-1-6 {

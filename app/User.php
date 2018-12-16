@@ -44,6 +44,8 @@ class User extends Authenticatable
 
     public function roles()
     {
+        # User has many roles
+        # Define a many-to-many relationship
         return $this->belongsToMany('App\Role')->withTimestamps();
     }
 

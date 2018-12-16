@@ -16,7 +16,7 @@ class CommentController extends Controller
     public function addComment(Request $request, $id) {
         # Validate request data
         $request->validate([
-            'text' => 'required'
+            'text' => 'required|size:191'
         ]);
 
         $thread = Thread::find($id);
@@ -41,11 +41,10 @@ class CommentController extends Controller
     {
         # TO DO: display view to edit a comment
         $comment = Comment::find($id);
+        $thread_id = $comment->thread->id;
         return view('comments.edit')->with([
-            'text' => $comment->text,
-            'created_at' => $comment->created_at,
-            'author' => $comment->user_id,
-            'id' => $comment->id
+            'comment' => $comment,
+            'thread_id' => $thread_id
         ]);
     }
 
