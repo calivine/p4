@@ -18,12 +18,11 @@
         {{ session('alert') }}
     </div>
 @endif
-
-<header>
-    @include('modules.nav-bar')
-</header>
-
-<h1> {{ config('app.name') }}</h1>
+<div class='row'>
+    <header>
+        @include('modules.nav-bar')
+    </header>
+</div>
 
 @if ($errors->any())
     <div class='row error-alert'>

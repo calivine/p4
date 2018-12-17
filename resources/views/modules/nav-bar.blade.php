@@ -1,5 +1,8 @@
 <nav>
     <ul>
+        <div class='col-1-6'>
+            <h1> {{ config('app.name') }}</h1>
+        </div>
         @foreach(config('app.nav'.Auth::check()) as $link => $label)
             <div class='col-1-6'>
                 <li><a href='{{ $link }}' class='{{ Request::is(substr($link, 1)) ? 'active' : '' }}'> {{ $label }}</a></li>
