@@ -14,8 +14,9 @@ class ThreadsTableSeeder extends Seeder
     public function run()
     {
         $threads = [
-            ['Kafka Example','One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible',1],
-            ['Far Far Away','Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. ',2]
+            ['Is the muddle many better than the big?','One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible',1],
+            ['Far Far Away','Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. ',2],
+            ['The bubbly pop cant reproduce the gap.','The reminiscent negative cant fool the weather.',1]
         ];
 
         foreach ($threads as $key => $threadData) {

@@ -38,20 +38,6 @@ class ThreadController extends Controller
 
     }
 
-
-    /*
-     * GET
-     * /threads/new
-     * Display form to create a new thread
-     */
-    public function new(Request $request)
-    {
-        return view('threads.new')->with([
-            'title' => session('title', ''),
-            'body_text' => session('body_text', '')
-        ]);
-    }
-
     /*
      * GET
      * /threads/{id}
@@ -63,7 +49,7 @@ class ThreadController extends Controller
         $thread = Thread::find($id);
 
         # Get associated comments and their author's names
-        $comments = Comment::where('thread_id', $id)->with('user')->get();
+        $comments = Comment::where('thread_id', $id)->with('user.roles')->get();
 
         # Get data about current user
         $user = $request->user();
@@ -76,6 +62,19 @@ class ThreadController extends Controller
     }
 
     /*
+     * GET
+     * /threads/new
+     * Display form to create a new thread
+     */
+    public function new()
+    {
+        return view('threads.new')->with([
+            'title' => session('title', ''),
+            'body_text' => session('body_text', '')
+        ]);
+    }
+
+    /*
      * POST
      * /create
      * Process input to create new thread
@@ -84,8 +83,8 @@ class ThreadController extends Controller
     {
         # Validate request data
         $request->validate([
-            'title' => 'required|size:191',
-            'body_text' => 'required|size:191'
+            'title' => 'required',
+            'body_text' => 'required'
         ]);
 
         # Get user object

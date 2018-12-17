@@ -95,6 +95,14 @@ Layout Styles
     max-width: 1170px;
 }
 
+.content-container {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1170px;
+}
+
 .row {
     margin-right: -15px;
     margin-left: -15px;
@@ -204,6 +212,12 @@ Module Styles
     text-align: center;
     padding-top: 18px;
     padding-bottom: 18px;
+}
+
+/* Alert Styles */
+.error-alert {
+    background-color: #e3342f;
+    color: #FFFFFF;
 }
 
 /* Background Colors

@@ -26,9 +26,11 @@
 <h1> {{ config('app.name') }}</h1>
 
 @if ($errors->any())
-    @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-    @endforeach
+    <div class='row error-alert'>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </div>
 @endif
 
 <div class='container background-primary'>

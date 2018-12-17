@@ -16,7 +16,7 @@ class CommentController extends Controller
     public function addComment(Request $request, $id) {
         # Validate request data
         $request->validate([
-            'text' => 'required|size:191'
+            'text' => 'required'
         ]);
 
         $thread = Thread::find($id);
