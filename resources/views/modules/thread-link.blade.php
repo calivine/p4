@@ -1,6 +1,6 @@
 <li>
     <div class='row'>
-        <div class='col-1-4'>
+        <div class='col-1-2'>
             <a href='{{ '/threads/' . $thread->id }}'>
                 {{ $thread->title }}
             </a>
