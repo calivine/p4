@@ -1,4 +1,4 @@
-<div class='row'>
+<div class='row thread-link'>
     <div class='col-1-2'>
         <a href='{{ '/threads/' . $thread->id }}'>
             {{ $thread->title }}
