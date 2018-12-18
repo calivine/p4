@@ -4,9 +4,9 @@ return [
 
     # Guest navigation links
     'nav' => [
+        '/threads/list' => 'Threads',
         '/register' => 'Register',
-        '/login' => 'Login',
-        '/threads/list' => 'Threads'
+        '/login' => 'Login'
     ],
 
     # Logged-in user navigation links

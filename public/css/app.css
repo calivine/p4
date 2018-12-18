@@ -15,7 +15,6 @@ Reset Styles
 ****************************
 ***************************/
 
-@import 'normalize.css';
 
 /* Change all elements to use border-box */
 html {
@@ -215,9 +214,13 @@ Module Styles
 }
 
 /* Alert Styles */
-.error-alert {
+.alert-error {
     background-color: #e3342f;
     color: #FFFFFF;
+}
+
+.alert-success {
+    background-color: deepskyblue;
 }
 
 /* Background Colors
