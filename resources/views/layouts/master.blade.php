@@ -28,8 +28,10 @@
         @endforeach
     </div>
 @endif
+<main class='container background-primary'>
+    @yield('content')
+</main>
 
-@yield('content')
 
 <footer>
     <a href='http://github.com/calivine/p4'><i class='fab fa-github'></i> View on Github</a> |
