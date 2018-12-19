@@ -16,6 +16,7 @@ class RoleUserTableSeeder extends Seeder
     {
         $roles = [
             1 => 'admin',
+            1 => 'member',
             2 => 'member'
         ];
 

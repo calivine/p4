@@ -13,7 +13,6 @@ return [
     'nav1' => [
         '/threads/list' => 'Threads',
         '/threads/new' => 'New Thread',
-        '/profile' => 'Profile'
     ],
 
     /*

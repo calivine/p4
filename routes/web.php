@@ -13,12 +13,7 @@
 
 
 /*
- * Home
- */
-Route::view('/', 'welcome');
-
-/*
- * Threads
+ * Thread Index
  */
 Route::get('/threads/list', 'ThreadController@getList');
 
@@ -29,12 +24,16 @@ Route::get('/threads/new', [
 ]);
 Route::post('/create', 'ThreadController@create');
 
-# SHOW
+# SHOW thread
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 
 # EDIT thread
 Route::get('/threads/{id}/edit', 'ThreadController@editThread');
 Route::put('/threads/{id}', 'ThreadController@updateThread');
+
+# DELETE thread
+Route::get('/threads/{id}/delete', 'ThreadController@delete');
+Route::delete('threads/{id}', 'ThreadController@destroy');
 
 # CREATE new comment
 Route::post('/threads/{id}/comment', 'CommentController@addComment');
@@ -43,18 +42,17 @@ Route::post('/threads/{id}/comment', 'CommentController@addComment');
 Route::get('/comments/{id}/edit', 'CommentController@edit');
 Route::put('/comments/{id}', 'CommentController@update');
 
-# DELETE
+# DELETE comment
 Route::get('comments/{id}/delete', 'CommentController@delete');
 Route::delete('comments/{id}', 'CommentController@destroy');
 
-# GET user profile
-Route::get('/profile', [
-    'middleware' => 'auth',
-    'uses' => 'UserController@profile'
-]);
-
 # AUTHENTICATION
 Auth::routes();
+
+/*
+ * Home
+ */
+Route::get('/', 'ThreadController@welcomeThreads');
 
 
 

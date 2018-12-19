@@ -12,6 +12,38 @@ class ThreadController extends Controller
 {
     /*
      * GET
+     * /
+     * Get most recent three threads and display on homepage
+     */
+    public function welcomeThreads()
+    {
+        $threads = Thread::orderBy('id', 'desc')
+                    ->take(3)
+                    ->get();
+
+        if(Auth::check())
+        {
+            $id = Auth::id();
+            # $user = User::where('id', $id)->with('roles')->get();
+            $user = User::find($id);
+            foreach ($user->roles as $role) {
+                $user_role = $role;
+            }
+            return view('welcome')->with([
+                'threads' => $threads,
+                'user_role' => $user_role
+            ]);
+        } else {
+            return view('welcome')->with([
+                'threads' => $threads,
+            ]);
+        }
+    }
+
+
+
+    /*
+     * GET
      * /threads/list
      * Get and display list of threads
      */
@@ -30,10 +62,12 @@ class ThreadController extends Controller
                 'threads' => $threads,
                 'user_role' => $user_role
             ]);
+        } else {
+            return view('threads.list')->with([
+                'threads' => $threads,
+            ]);
         }
-        return view('threads.list')->with([
-            'threads' => $threads,
-        ]);
+
 
 
     }
@@ -132,6 +166,41 @@ class ThreadController extends Controller
 
         return redirect('/threads/list')->with([
             'alert' => 'Thread Updated'
+        ]);
+    }
+
+    /*
+     * GET
+     * /comments/{id}/delete
+     * Display confirmation page to delete comment
+     */
+    public function delete($id)
+    {
+        $thread = Thread::find($id);
+
+        return view('threads.delete')->with([
+            'thread' => $thread
+        ]);
+    }
+
+    /*
+     * Complete the delete process
+     * DELETE
+     * /comments/{id}/delete
+     */
+    public function destroy($id)
+    {
+        $thread = Thread::find($id);
+
+        # First remove thread's comments
+        $thread->comments()->delete();
+
+        # Delete thread
+        $thread->delete();
+
+        # Return to home page with confirmation
+        return redirect('/')->with([
+            'alert' => 'Thread Deleted'
         ]);
     }
 

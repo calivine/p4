@@ -3,7 +3,7 @@
     <fieldset>
         <label for='text'>
             Text:*
-            <textarea autocomplete='off' name='text' id='text'>
+            <textarea autocomplete='off' name='text' id='text' rows='5', cols='15'>
                 {{ old('text') }}
             </textarea>
         </label>

@@ -32,6 +32,9 @@
                 <input type='submit' value='Save Changes'>
             </form>
         </div>
+        <div class='row'>
+            <a href='/threads/{{ $thread->id }}/delete'>Delete Thread</a>
+        </div>
     </div>
 
 @endsection

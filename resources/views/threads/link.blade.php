@@ -9,7 +9,7 @@
             @if($user_role->name == 'admin')
                 <a href='{{ '/threads/' . $thread->id . '/edit' }}'>
                     Edit
-                </a> Thread
+                </a>
             @endif
         </div>
     @endif

@@ -1,19 +1,19 @@
-<div class='row'>
+<div class='row comment-box'>
     <div class='col-1-4'>
         <div class='row'>
-            <span>{{ $comment->user->name }}</span>
+            {{ $comment->user->name }}
         </div>
         @foreach($comment->user->roles as $role)
             <div class='row'>
-                <span>{{ $role->name }}</span>
+                {{ $role->name }}
             </div>
         @endforeach
         <div class='row'>
-            <span>{{ $comment->created_at }}</span>
+            {{ $comment->created_at }}
         </div>
     </div>
     <div class='col-1-2'>
-        <p class='comment-box'>
+        <p>
             {{ $comment->text }}
         </p>
     </div>
