@@ -52,6 +52,13 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+header {
+    display: block;
+    height: 100px;
+    padding-top: 30px;
+    width: 100%;
+}
+
 footer {
     text-align: center;
     background-color: #eee;
@@ -229,6 +236,26 @@ Module Styles
     background-color: #3E3E3E;
 }
 
+
+/*
+ * Thread Modules
+ */
 .thread-body {
     background-color: #494949;
 }
+
+.thread-link {
+    border: 1px #0A0A0A;
+    margin: 10px;
+    text-align: left;
+}
+
+
+/*
+ * Comment Modules
+ */
+.comment-body {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+

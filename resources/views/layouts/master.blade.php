@@ -12,17 +12,14 @@
     @stack('head')
 </head>
 <body>
-
 @if(session('alert'))
     <div class='alert-success'>
         {{ session('alert') }}
     </div>
 @endif
-<div class='row'>
-    <header>
-        @include('modules.nav-bar')
-    </header>
-</div>
+<header>
+    @include('modules.nav-bar')
+</header>
 
 @if ($errors->any())
     <div class='row alert-error'>
@@ -32,11 +29,7 @@
     </div>
 @endif
 
-<div class='container background-primary'>
-    <section>
-        @yield('content')
-    </section>
-</div>
+@yield('content')
 
 <footer>
     <a href='http://github.com/calivine/p4'><i class='fab fa-github'></i> View on Github</a> |
