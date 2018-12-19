@@ -117,8 +117,8 @@ class ThreadController extends Controller
     {
         # Validate request data
         $request->validate([
-            'title' => 'required',
-            'body_text' => 'required'
+            'title' => 'required|max:100',
+            'body_text' => 'required|max:191'
         ]);
 
         # Get user object
@@ -157,7 +157,8 @@ class ThreadController extends Controller
     public function updateThread(Request $request, $id)
     {
         $this->validate($request, [
-            'body_text' => 'required'
+            'body_text' => 'required|max:191',
+            'title' => 'max:100'
         ]);
         $thread = Thread::find($id);
         $thread->title = $request->input('title');

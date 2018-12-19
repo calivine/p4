@@ -12,26 +12,30 @@
     @stack('head')
 </head>
 <body>
+
 @if(session('alert'))
     <div class='alert-success'>
         {{ session('alert') }}
     </div>
 @endif
+
 <header>
     @include('modules.nav-bar')
 </header>
 
 @if ($errors->any())
-    <div class='row alert-error'>
+    <div class='alert-error'>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <li>
+                {{ $error }}
+            </li>
         @endforeach
     </div>
 @endif
+
 <main class='container background-primary'>
     @yield('content')
 </main>
-
 
 <footer>
     <a href='http://github.com/calivine/p4'><i class='fab fa-github'></i> View on Github</a> |

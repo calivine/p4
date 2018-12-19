@@ -1,9 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class='container background-primary'>
-        @foreach($threads as $thread)
-            @include('threads.link')
-        @endforeach
-    </section>
+    @foreach($threads as $thread)
+        @include('threads.link')
+    @endforeach
 @endsection

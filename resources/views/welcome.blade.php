@@ -8,7 +8,7 @@
         <a href='/threads/new'>Create New Thread</a>
     @else
         <p>
-            Register <a href='/register'>here</a> to create your own thread.
+            Register <a href='/register'>here</a> to start a thread.
         </p>
     @endif
 

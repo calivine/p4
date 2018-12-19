@@ -43,6 +43,7 @@ Base Styles
 body {
     background-color: #0A0A0A;
     color: #FFFFFF;
+    display: block;
     font-family: 'Cambay', sans-serif;
     font-weight: normal;
     text-align: center;
@@ -71,15 +72,21 @@ footer {
     line-height: 60px; /* Vertically center the text there */
 }
 
+input {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
 a {
     /* color: #4FE734; */
     color: #6ba65e;
     font-weight: bold;
+    text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 li {
     list-style-type: none;
@@ -236,6 +243,15 @@ Module Styles
     background-color: #3E3E3E;
 }
 
+/*
+ * Form Modules
+ *
+ */
+.form-group-align {
+    margin: 0 auto;
+    text-align: left;
+}
+
 
 /*
  * Thread Modules
@@ -245,8 +261,9 @@ Module Styles
 }
 
 .thread-link {
-    border: 1px #0A0A0A;
-    margin: 10px;
+    border-bottom: 1px solid #959595;
+    margin: 15px;
+    padding-bottom: 10px;
     text-align: left;
 }
 
@@ -259,3 +276,7 @@ Module Styles
     margin-right: 15px;
 }
 
+.comment-box {
+    border: .25rem solid #f4feff;
+    text-align: left;
+}

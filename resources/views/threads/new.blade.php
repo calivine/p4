@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    <h2>Create New Thread</h2>
     <form method='POST' action='/create'>
         {{ csrf_field() }}
         <fieldset>

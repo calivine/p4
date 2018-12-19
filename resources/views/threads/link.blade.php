@@ -7,9 +7,9 @@
     @if(Auth::check())
         <div class='col-1-4'>
             @if($user_role->name == 'admin')
-                <a href='{{ '/threads/' . $thread->id . '/edit' }}'>
+                <li href='{{ '/threads/' . $thread->id . '/edit' }}'>
                     Edit
-                </a>
+                </li>
             @endif
         </div>
     @endif

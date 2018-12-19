@@ -1,7 +1,10 @@
 <nav>
-
     <div class='col-1-6 remove-gutter-xs'>
-        <h1> {{ config('app.name') }}</h1>
+        <h1>
+            <a href='/'>
+                {{ config('app.name') }}
+            </a>
+        </h1>
     </div>
     @foreach(config('app.nav'.Auth::check()) as $link => $label)
         <div class='col-1-6 remove-gutter-xs'>
@@ -17,5 +20,4 @@
             </form>
         </div>
     @endif
-
 </nav>

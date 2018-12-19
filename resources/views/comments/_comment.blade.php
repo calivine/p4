@@ -1,16 +1,18 @@
 <div class='row comment-box'>
     <div class='col-1-4'>
-        <div class='row'>
-            {{ $comment->user->name }}
-        </div>
-        @foreach($comment->user->roles as $role)
-            <div class='row'>
-                {{ $role->name }}
-            </div>
-        @endforeach
-        <div class='row'>
-            {{ $comment->created_at }}
-        </div>
+        <ul>
+            <li>
+                {{ $comment->user->name }}
+            </li>
+            @foreach($comment->user->roles as $role)
+                <li>
+                    {{ $role->name }}
+                </li>
+            @endforeach
+            <li>
+                {{ $comment->created_at }}
+            </li>
+        </ul>
     </div>
     <div class='col-1-2'>
         <p>
@@ -19,8 +21,14 @@
     </div>
     <div class='col-1-4'>
         @if($user != null and $user->id == $comment->user_id)
-            <a href='/comments/{{ $comment->id }}/edit'>Edit</a>
-            <a href='/comments/{{ $comment->id }}/delete'>Delete Comment</a>
+            <ul>
+                <li>
+                    <a href='/comments/{{ $comment->id }}/edit'>Edit</a>
+                </li>
+                <li>
+                    <a href='/comments/{{ $comment->id }}/delete'>Delete Comment</a>
+                </li>
+            </ul>
         @endif
     </div>
 </div>

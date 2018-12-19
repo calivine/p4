@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    <h2>Log In</h2>
     <form method='POST' action='{{ route('login') }}'>
         @csrf
 

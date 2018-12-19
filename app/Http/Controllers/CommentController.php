@@ -16,7 +16,7 @@ class CommentController extends Controller
     public function addComment(Request $request, $id) {
         # Validate request data
         $request->validate([
-            'text' => 'required'
+            'text' => 'required|max:191'
         ]);
 
         $thread = Thread::find($id);
@@ -56,7 +56,7 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'comment_text' => 'required'
+            'comment_text' => 'required|max:191'
         ]);
 
         $comment = Comment::find($id);
