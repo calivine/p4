@@ -5,14 +5,16 @@
     </div>
     <div class='row'>
         <div class='col-1-4'>
-            <div class='row'>
-                <span>{{ $thread->user->name }}</span>
-            </div>
-            @foreach($thread->user->roles as $role)
-                <div class='row'>
-                    <span>{{ $role->name }}</span>
-                </div>
-            @endforeach
+            <ul>
+                <li>
+                    {{ $thread->user->name }}
+                </li>
+                @foreach($thread->user->roles as $role)
+                    <li>
+                        {{ $role->name }}
+                    </li>
+                @endforeach
+            </ul>
         </div>
         <div class='col-1-2'>
             <p>

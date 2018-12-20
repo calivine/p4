@@ -3,13 +3,16 @@
         <a href='{{ '/threads/' . $thread->id }}'>
             {{ $thread->title }}
         </a>
+        <p class='thread-link-details'>
+            By {{ $thread->user->name }} on {{ $thread->created_at }}
+        </p>
     </div>
     @if(Auth::check())
         <div class='col-1-4'>
             @if($user_role->name == 'admin')
-                <li href='{{ '/threads/' . $thread->id . '/edit' }}'>
+                <a href='{{ '/threads/' . $thread->id . '/edit' }}'>
                     Edit
-                </li>
+                </a>
             @endif
         </div>
     @endif

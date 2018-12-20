@@ -18,6 +18,7 @@ class ThreadController extends Controller
     public function welcomeThreads()
     {
         $threads = Thread::orderBy('id', 'desc')
+                    ->with('user')
                     ->take(3)
                     ->get();
 
@@ -26,9 +27,15 @@ class ThreadController extends Controller
             $id = Auth::id();
             # $user = User::where('id', $id)->with('roles')->get();
             $user = User::find($id);
+            # Check user's role
             foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    $user_role = $role;
+                    break;
+                }
                 $user_role = $role;
             }
+
             return view('welcome')->with([
                 'threads' => $threads,
                 'user_role' => $user_role
@@ -49,13 +56,17 @@ class ThreadController extends Controller
      */
     public function getList()
     {
-        $threads = Thread::orderBy('id', 'desc')->get();
+        $threads = Thread::orderBy('id', 'desc')->with('user')->get();
         if(Auth::check())
         {
             $id = Auth::id();
             # $user = User::where('id', $id)->with('roles')->get();
             $user = User::find($id);
             foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    $user_role = $role;
+                    break;
+                }
                 $user_role = $role;
             }
             return view('threads.list')->with([

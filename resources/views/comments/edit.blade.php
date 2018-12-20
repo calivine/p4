@@ -5,19 +5,16 @@
 @endsection
 
 @section('content')
-    <section>
-        <p>
-            {{ $comment->created_at }}
-        </p>
-    </section>
     <form method='POST' action='/comments/{{ $comment->id }}'>
         {{ method_field('put') }}
         {{ csrf_field() }}
         <label for='comment_text'>
             Edit Text:
+            <input type='text' name='comment_text' id='comment_text' value='{{ old('comment_text', $comment->text) }}'>
         </label>
-        <input type='text' name='comment_text' id='comment_text' value='{{ old('comment_text', $comment->text) }}'>
-        <input type='submit' value='Save Changes'>
+        <button type='submit' class='btn btn-primary'>
+            Save Changes
+        </button>
     </form>
     <a href='/threads/{{ $thread_id }}'>Back</a>
 @endsection

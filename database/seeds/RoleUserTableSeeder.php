@@ -14,17 +14,18 @@ class RoleUserTableSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
-            1 => 'admin',
-            1 => 'member',
-            2 => 'member'
+        # User array, indexed by user_id
+        $users = [
+            1 => ['admin','member'],
+            2 => ['member']
         ];
 
-        foreach ($roles as $index => $roleName) {
+        foreach ($users as $index => $roles) {
             $user = User::where('id', '=', $index)->first();
-            $role = Role::where('name', '=', $roleName)->first();
-
-            $user->roles()->save($role);
+            foreach ($roles as $roleName) {
+                $role = Role::where('name', '=', $roleName)->first();
+                $user->roles()->save($role);
+            }
         }
     }
 }
