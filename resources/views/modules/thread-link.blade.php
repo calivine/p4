@@ -4,7 +4,7 @@
             {{ $thread->title }}
         </a>
         <p class='thread-link-details'>
-            By {{ $thread->user->name }} on {{ $thread->created_at }}
+            By {{ $thread->user->name }} on {{ $thread->created_at->format('m/d/y g:ia') }}
         </p>
     </div>
     @if(Auth::check())

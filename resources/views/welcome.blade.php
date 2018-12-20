@@ -2,13 +2,13 @@
 
 @section('content')
     <p>
-        Welcome to the P4 Forums. Click on a thread below to get started.
+        Welcome to the P4 Forums.
     </p>
     @if(auth::check())
         <a href='/threads/new'>Create New Thread</a>
     @else
         <p>
-            Register <a href='/register'>here</a> to start a thread.
+            Register <a href='/register'>here</a> to get started.
         </p>
     @endif
 

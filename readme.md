@@ -16,39 +16,41 @@ Pivot table
 ## CRUD
 
 __Create__
- * Visit <http://p4.caloggero.me/login>
- * Log in as user jill@harvard.edu or jamal@harvard.edu
- * OR, Visit <http://p4.caloggero.me/register>
- * Register new account
- * After user is authenticated, visit <http://p4.caloggero.me/threads/new>
- * Fill out form
+ * Log in as jill@harvard.edu if that user is not already logged in.
+ * Visit <http://p4.caloggero.me/login> to log in as jill@harvard.edu
+ * Visit <http://p4.caloggero.me/threads/new>
+ * Fill out form fields
  * Press Submit
  * You will be redirected to new thread and will see a confirmation message
  
 __Read__
  * Visit <http://p4.caloggero.me/threads/list> to see a list of all the threads
+ * You can click on a thread and view the text and any comments to the thread
 
 __Update__
- * While logged in as a user, visit <http://p4.caloggero.me/threads/1>
- * Next to the comments of the user you are signed in as, there should be an edit link for that comment
- * Click link to edit a comment. Users can only edit their own comments
+ * While logged in as jill@harvard.edu, visit <http://p4.caloggero.me/threads/2>
+ * Click the Edit link on the right side of jill's comment. 
  * Make a change to the comment
  * Click Save
  * Observe confirmation message
  
 __Delete__
- * Visit <http://p4.caloggero.me/threads/1> and click on Delete link next to a comment
+ * Visit <http://p4.caloggero.me/threads/2> and click on Delete link next to a comment
  * Confirm deletion
  * Observe confirmation message
  
 ## Outside Resources
- * I used my notes and resources from an EdX course, Advanced CSS Concepts, to design some custom CSS for a grid layout, as well as style organization.
- * Color picker
- * Google Fonts
+ * I used my notes and resources from an EdX course, [Advanced CSS Concepts](https://www.edx.org/course/advanced-css-concepts-2), to design some custom CSS for a grid layout, as well as style organization.
+ * [HTML Color Picker](https://htmlcolorcodes.com/)
+ * [Google Fonts](https://fonts.google.com/)
+ * [HTML Elements Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+ * [stackoverflow: Storing data in eloquent relationships](https://stackoverflow.com/questions/32522918/laravel-5-1-store-data-in-eloquent-relationships)
  
 ## Code Style Divergences
-
+ * None
 
 ## Notes for instructor
- * I used examples from the Issues Forum on github as sample text for threads and comments  
+ * I used random samples from the Issues Forum on github as sample text for threads and comments
+ * The user Jill Harvard is seeded with the user role admin which gives her the ability to edit or delete threads. Regular members can only edit or delete their own comments.
+
   

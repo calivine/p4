@@ -20,13 +20,19 @@ class ThreadsTableSeeder extends Seeder
             ['Subdomain URL not found','I went through the instructions, and my main domain works. The subdomain says the URL is not found. ',2]
         ];
 
+        $count = count($threads);
+
         foreach ($threads as $key => $threadData) {
             $thread = new Thread();
 
+            $thread->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
+            $thread->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $thread->title = $threadData[0];
             $thread->body_text = $threadData[1];
             $thread->user_id = $threadData[2];
             $thread->save();
+
+            $count--;
         }
 
     }

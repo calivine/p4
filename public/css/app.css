@@ -188,7 +188,8 @@ Module Styles
     border: 1px solid transparent;
     cursor: pointer;
     text-decoration: none;
-    padding: 12px 25px;
+    margin: 15px 0;
+    padding: 10px 20px;
     font-size: 1.313em;
     font-weight: bold;
     border-radius: 4px;

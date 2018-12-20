@@ -1,7 +1,8 @@
 <section>
     <h2 id='thread-header'>{{ $thread->title }}</h2>
     <div class='row'>
-        <p id='thread-header-body'> Started by {{ $thread->user->name }} on {{ $thread->created_at->format('m/d/y g:ia') }}</p>
+        <p id='thread-header-body'>
+            Started by {{ $thread->user->name }} on {{ $thread->created_at->format('m/d/y g:ia') }}</p>
     </div>
     <div class='row'>
         <div class='col-1-4'>

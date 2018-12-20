@@ -60,7 +60,7 @@ class ThreadController extends Controller
         if(Auth::check())
         {
             $id = Auth::id();
-            # $user = User::where('id', $id)->with('roles')->get();
+
             $user = User::find($id);
             foreach ($user->roles as $role) {
                 if ($role->name == 'admin') {
