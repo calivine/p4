@@ -51,8 +51,10 @@ h1, h2, h3 {
 }
 
 header {
+    color: #6ba65e;
     display: inline-block;
     height: 68px;
+    font-weight: bold;
     margin: 1em auto;
     padding: 1em;
     width: 100%;
@@ -101,8 +103,8 @@ Layout Styles
 ****************************
 ***************************/
 .container {
-    height: 500px;
-    padding: 15px 15px 0;
+    max-height: 100%;
+    padding: 15px;
     margin: 0 auto;
     max-width: 1170px;
 }
@@ -186,7 +188,7 @@ Module Styles
     border: 1px solid transparent;
     cursor: pointer;
     text-decoration: none;
-    padding: 12px 30px;
+    padding: 12px 25px;
     font-size: 1.313em;
     font-weight: bold;
     border-radius: 4px;
@@ -255,9 +257,19 @@ Module Styles
 
 .thread-link-details {
     color: #6ba65e;
+    font-size: .75em;
     font-weight: bold;
     margin: 0;
     padding: 0;
+}
+
+#thread-header {
+    font-size: 2em;
+    margin: 0;
+}
+
+#thread-header-body {
+    margin: 0;
 }
 
 
@@ -269,6 +281,7 @@ Module Styles
 }
 
 .comment-box {
-    border: .25rem solid #f4feff;
+    border: 1px solid #959595;
+    margin: 5px 0;
     text-align: left;
 }

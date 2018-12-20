@@ -6,16 +6,16 @@
         {{ csrf_field() }}
         <fieldset>
             <label for='title'>
-                Title:*
+                Title:*(100 character limit)
                 <input type='text' autocomplete='off' name='title' id='title' value='{{ old('title') }}'>
             </label>
             <label for='body_text'>
-                Text:*
-                <textarea autocomplete='off' name='body_text' id='body_text'>
-                {{ old('body_text') }}
-            </textarea>
+                Text:*(191 character limit)
+                <textarea autocomplete='off' name='body_text' id='body_text' rows='10' , cols='25'>
+                    {{ old('body_text') }}
+                </textarea>
             </label>
         </fieldset>
-        <button type='submit'>Submit</button>
+        <button type='submit' class='btn btn-primary'>Submit</button>
     </form>
 @endsection

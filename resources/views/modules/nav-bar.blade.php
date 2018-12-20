@@ -8,7 +8,11 @@
     </div>
     @foreach(config('app.nav'.Auth::check()) as $link => $label)
         <div class='col-1-6 remove-gutter-xs'>
-            <a href='{{ $link }}' class='{{ Request::is(substr($link, 1)) ? 'active' : '' }}'> {{ $label }}</a>
+            @if(Request::is(substr($link,1)))
+                {{ $label }}
+            @else
+                <a href='{{ $link }}' class='{{ Request::is(substr($link, 1)) ? 'active' : '' }}'> {{ $label }}</a>
+            @endif
         </div>
     @endforeach
 

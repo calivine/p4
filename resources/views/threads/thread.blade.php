@@ -3,7 +3,7 @@
 @section('content')
     <div class='row thread-body'>
         <div class='col-3-3 remove-gutter-xs'>
-            @include('threads.body')
+            @include('modules.thread-body')
         </div>
     </div>
     @if(Auth::check())

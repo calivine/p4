@@ -14,11 +14,10 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         $comments = [
-            ['But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',1,2],
-            ['The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.',2,1],
-            ['Lets all be unique together until we realise we are all the same.',2,1],
-            ['Force cacao shu gero goten suno.',2,2],
-            ['Fasha blood lord 18 dore mercenary baba martial launch boo.',1,1]
+            ['There sure is a need to structure files...different people/orgs do it in different ways...',3,2],
+            ['is it possibly called error.log and not just error?',1,2],
+            ['Upon further inspection, I had a URL redirect record set which I did not delete in Namecheap\'s DNS settings which I believe could be the cause of the problem',2,1],
+            ['Noticed it to happen only with the subdomain.',2,2]
         ];
         foreach ($comments as $key => $commentData) {
             $comment = new Comment();

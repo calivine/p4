@@ -10,7 +10,9 @@
         {{ csrf_field() }}
         <label for='comment_text'>
             Edit Text:
-            <input type='text' name='comment_text' id='comment_text' value='{{ old('comment_text', $comment->text) }}'>
+            <textarea type='text' name='comment_text' id='comment_text' rows='10', cols='25'>
+                {{ old('comment_text', $comment->text) }}
+            </textarea>
         </label>
         <button type='submit' class='btn btn-primary'>
             Save Changes

@@ -2,6 +2,6 @@
 
 @section('content')
     @foreach($threads as $thread)
-        @include('threads.link')
+        @include('modules.thread-link')
     @endforeach
 @endsection

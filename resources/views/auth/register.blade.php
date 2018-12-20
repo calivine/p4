@@ -16,7 +16,7 @@
             <input id='email' type='email' name='email' value='{{ old('email') }}'>
         </label>
 
-        <label for='password'>Password
+        <label for='password'>Password(min:6)
             <input id='password' type='password' name='password'>
         </label>
 

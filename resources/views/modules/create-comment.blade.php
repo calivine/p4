@@ -2,11 +2,11 @@
     {{ csrf_field() }}
     <fieldset>
         <label for='text'>
-            Text:*
-            <textarea autocomplete='off' name='text' id='text' rows='5', cols='15'>
+            New Comment:(191 character limit)
+            <textarea autocomplete='off' name='text' id='text' rows='3', cols='45'>
                 {{ old('text') }}
             </textarea>
         </label>
     </fieldset>
-    <button type='submit'>Submit</button>
+    <button type='submit' class='btn btn-primary'>Submit</button>
 </form>

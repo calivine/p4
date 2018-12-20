@@ -10,7 +10,7 @@
                 </li>
             @endforeach
             <li>
-                {{ $comment->created_at }}
+                {{ $comment->created_at->format('m/d/y g:ia') }}
             </li>
         </ul>
     </div>
