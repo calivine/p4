@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
  */
 Route::get('/threads/list', 'ThreadController@getList');
 
+# SEARCH threads
+Route::get('/search-threads', 'ThreadController@searchProcess');
+
 # SHOW thread
 Route::get('/threads/{id}', 'ThreadController@displayThread')->name('viewThread');
 

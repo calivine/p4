@@ -216,5 +216,23 @@ class ThreadController extends Controller
         ]);
     }
 
+    /*
+     * Search for a thread
+     * /search-threads
+     * GET
+     */
+    public function searchProcess(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm', null);
+        $searchBy = $request->input('searchBy', null);
+        if($searchBy == 'title') {
+            $titles = Thread::all();
+            foreach($titles as $title) {
+                dump($title->title);
+            }
+            die();
+        }
+    }
+
 
 }
