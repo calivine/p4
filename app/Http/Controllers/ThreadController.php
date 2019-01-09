@@ -129,7 +129,7 @@ class ThreadController extends Controller
         # Validate request data
         $request->validate([
             'title' => 'required|max:100',
-            'body_text' => 'required|max:191'
+            'body_text' => 'required|max:1000'
         ]);
 
         # Get user object
@@ -225,14 +225,26 @@ class ThreadController extends Controller
     {
         $searchTerm = $request->input('searchTerm', null);
         $searchBy = $request->input('searchBy', null);
+        $foundItems = [];
+
+        $titles = Thread::all();
+
         if($searchBy == 'title') {
-            $titles = Thread::all();
+
             foreach($titles as $title) {
-                dump($title->title);
+                if(str_contains($title->title, $searchTerm)) {
+                    $foundItems[] = $title;
+                }
             }
-            die();
+        } else {
+            foreach($titles as $title) {
+                if(str_contains($title->body_text, $searchTerm)) {
+                    $foundItems[] = $title;
+                }
+            }
         }
+        return view('threads.list')->with([
+            'threads' => $foundItems
+        ]);
     }
-
-
 }

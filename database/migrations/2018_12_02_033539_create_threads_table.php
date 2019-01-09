@@ -17,7 +17,7 @@ class CreateThreadsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title', 125);
-            $table->string('body_text');
+            $table->longText('body_text');
             $table->integer('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');

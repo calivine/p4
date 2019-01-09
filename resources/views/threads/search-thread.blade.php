@@ -4,7 +4,7 @@
     <label for='searchBy'>Search by:</label>
     <select name='searchBy'>
         <option value='title'>Title</option>
-        <option value='body'></option>
+        <option value='body'>Body</option>
     </select>
     <button type='submit'>Search</button>
 </form>

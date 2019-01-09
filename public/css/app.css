@@ -52,8 +52,6 @@ h1, h2, h3 {
 
 header {
     color: #6ba65e;
-    display: inline-block;
-    height: 68px;
     font-weight: bold;
     margin: 1em auto;
     padding: 1em;
@@ -87,6 +85,11 @@ label {
     display: block;
     margin: 0 auto;
     text-align: left;
+}
+
+nav li {
+    display: inline-block;
+    width: 200px;
 }
 
 li {

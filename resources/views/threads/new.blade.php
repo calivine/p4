@@ -10,7 +10,7 @@
                 <input type='text' autocomplete='off' name='title' id='title' value='{{ old('title') }}'>
             </label>
             <label for='body_text'>
-                Text:*(191 character limit)
+                Text:*(1000 character limit)
                 <textarea autocomplete='off' name='body_text' id='body_text' rows='10' , cols='25'>{{ old('body_text') }}</textarea>
             </label>
         </fieldset>
