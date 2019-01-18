@@ -15,17 +15,18 @@ class UsersTableSeeder extends Seeder
     {
         $user = User::updateOrCreate(
             ['email' => 'jill@harvard.edu', 'name' => 'JillHarvard'],
-            ['password' => Hash::make('helloworld')
-            ]);
+            ['password' => Hash::make('helloworld')],
+            ['ip_address' => Request::server('REMOTE_ADDR')]);
 
         $user = User::updateOrCreate(
             ['email' => 'jamal@harvard.edu', 'name' => 'JamalHarvard'],
-            ['password' => Hash::make('helloworld')
-            ]);
+            ['password' => Hash::make('helloworld')],
+            ['ip_address' => Request::server('REMOTE_ADDR')]);
 
         $user = User::updateOrCreate(
             ['email' => 'caloggero.a@gmail.com', 'name' => 'acali'],
-            ['password' => Hash::make('helloworld')]
+            ['password' => Hash::make('helloworld')],
+            ['ip_address' => Request::server('REMOTE_ADDR')]
         );
     }
 }

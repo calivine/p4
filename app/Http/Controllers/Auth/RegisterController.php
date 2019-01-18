@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Request;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
@@ -68,6 +69,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'ip_address' => Request::server('REMOTE_ADDR'),
         ]);
 
         $role = Role::where('name', '=', 'member')->first();
